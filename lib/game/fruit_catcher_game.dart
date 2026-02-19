@@ -1,6 +1,6 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'managers/audio_manager.dart';
+import 'package:gamebuah/managers/audio_manager.dart';
 
 class FruitCatcherGame extends FlameGame {
   @override
@@ -13,12 +13,14 @@ class FruitCatcherGame extends FlameGame {
   Future<void> onLoad() async {
     await super.onLoad();
     // Memutar background music saat game load
-    AudioManager().playBackgroundMusic(); 
+    AudioManager().playBackgroundMusic();
   }
 
   // Fungsi ini wajib ditambahkan agar buah bisa menambah skor
   void incrementScore() {
     scoreNotifier.value++;
-    AudioManager().playSfx('collect.mp3'); // Opsional: bunyi saat dapat skoraudio_manager.dart
+    AudioManager().playSfx(
+      'collect.mp3',
+    ); // Opsional: bunyi saat dapat skoraudio_manager.dart
   }
 }
